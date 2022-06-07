@@ -53,12 +53,13 @@ export class CreateEmpleadoComponent implements OnInit {
     // es una promesa y por tanto se utiliza el then con un arrow Función
     this.empleadoService.agregarEmpleado(empleado)
       .then(() => {
-        console.log('Empleado Registrado ')
+
+        alert('Empleado Registrado con éxito')
         // llamamos el router y el método navigate y le pasamos la ruta a donde queremos ir
         this.router.navigate(['/list-empleados'])
 
       })
-      .catch(error => console.log(error));
+      .catch(error => alert(error));
 
   }
 

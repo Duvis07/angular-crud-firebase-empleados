@@ -12,6 +12,7 @@ export class CreateEmpleadoComponent implements OnInit {
 
   createEmpleado: FormGroup;
   subbmited = false;
+  loading = false;
 
   //inyectamos la clase FormsBuilder para construir form reactivos
   // Inyectamos el servicio EmpleadoService
@@ -49,17 +50,27 @@ export class CreateEmpleadoComponent implements OnInit {
       fechaActualizacion: new Date()
 
     }
+
+    // Activa el spinner
+    this.loading = true;
+
+
     // se llama el servicio y se le pasa el objeto empleado
     // es una promesa y por tanto se utiliza el then con un arrow Función
     this.empleadoService.agregarEmpleado(empleado)
       .then(() => {
 
+        this.loading = false;
         alert('Empleado Registrado con éxito')
+        
         // llamamos el router y el método navigate y le pasamos la ruta a donde queremos ir
         this.router.navigate(['/list-empleados'])
 
       })
-      .catch(error => alert(error));
+      .catch(error => {
+        alert(error)
+        this.loading = false;
+      });
 
   }
 

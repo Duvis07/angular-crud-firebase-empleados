@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 
 @Component({
@@ -14,8 +15,10 @@ export class CreateEmpleadoComponent implements OnInit {
 
   //inyectamos la clase FormsBuilder para construir form reactivos
   // Inyectamos el servicio EmpleadoService
+  // Inyectamos el Router para navegar entre rutas desde TS
   constructor(private fb: FormBuilder,
-              private empleadoService: EmpleadoService) {
+              private empleadoService: EmpleadoService,
+              private router: Router) {
 
     this.createEmpleado = this.fb.group({
       nombre: ['', Validators.required],
@@ -49,7 +52,12 @@ export class CreateEmpleadoComponent implements OnInit {
     // se llama el servicio y se le pasa el objeto empleado
     // es una promesa y por tanto se utiliza el then con un arrow Función
     this.empleadoService.agregarEmpleado(empleado)
-      .then(() => console.log('Empleado Registrado '))
+      .then(() => {
+        console.log('Empleado Registrado ')
+        // llamamos el router y el método navigate y le pasamos la ruta a donde queremos ir
+        this.router.navigate(['/list-empleados'])
+
+      })
       .catch(error => console.log(error));
 
   }

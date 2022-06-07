@@ -23,7 +23,8 @@ export class EmpleadoService {
   // Servicio que obtiene todos los datos de firebase
   getEmpleados(): Observable<any> {
     // llamamos a la inyección firestore y al método snapshotChanges el cual Cree una secuencia de cambios sincronizados. Este método mantiene la matriz local en el orden de consulta ordenado. devuelve un observable
-    return this.firestore.collection('empleados').snapshotChanges();
+    // ref => ref.orderBy('fechaCreacion', 'asc') = sirve para ordenar segun el primer parámetro que se le envie y el segundo es de forma ascendente
+    return this.firestore.collection('empleados', ref => ref.orderBy('fechaCreacion', 'asc')).snapshotChanges();
   }
 
 }

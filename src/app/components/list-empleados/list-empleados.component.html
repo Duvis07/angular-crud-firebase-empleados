@@ -13,43 +13,22 @@
             <th>Apellido</th>
             <th>Documento</th>
             <th>Salario</th>
-            <th>
-              <i class="fa-solid fa-pen-to-square fa-lg text-info me-3"></i>
-              <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
-            </th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Steveen</td>
-            <td>Rodriguez</td>
-            <td>1090</td>
-            <td>2000</td>
+          <!-- tomamos el array empleados que esta en list-empleados.ts[] e imprimimos los campos -->
+          <tr *ngFor="let empleado of empleados">
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellido }}</td>
+            <td>{{ empleado.documento }}</td>
+            <td>{{ empleado.salario }}</td>
             <th>
               <i class="fa-solid fa-pen-to-square fa-lg text-info me-3"></i>
               <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
             </th>
           </tr>
-          <tr>
-            <td>Steveen</td>
-            <td>Rodriguez</td>
-            <td>1090</td>
-            <td>2000</td>
-            <th>
-              <i class="fa-solid fa-pen-to-square fa-lg text-info me-3"></i>
-              <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
-            </th>
-          </tr>
-          <tr>
-            <td>Steveen</td>
-            <td>Rodriguez</td>
-            <td>1090</td>
-            <td>2000</td>
-            <th>
-              <i class="fa-solid fa-pen-to-square fa-lg text-info me-3"></i>
-              <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
-            </th>
-          </tr>
+
         </tbody>
       </table>
     </div>

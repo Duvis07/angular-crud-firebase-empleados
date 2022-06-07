@@ -31,7 +31,6 @@ export class ListEmpleadosComponent implements OnInit {
     // al utilizar el servicio es un observable por tanto nos suscribimos
     this.empleadoService.getEmpleados()
       .subscribe(data => {
-        console.log(data)
         data.forEach((element:any) => {
           // element.payload.doc.id --> obtiene el id de los elementos en firebase
           //element.payload.doc.data() --> obtiene los datos completos de firebase
@@ -42,10 +41,9 @@ export class ListEmpleadosComponent implements OnInit {
             id: element.payload.doc.id, //le agregamos el id en una variable nueva
             ...element.payload.doc.data(), //con sprint-operator concatemos el id con data
           })
-
-
         });
       });
+      console.log(this.empleados)
   }
 
 }

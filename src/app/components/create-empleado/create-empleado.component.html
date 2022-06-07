@@ -1,18 +1,33 @@
 <div class="container pt-4">
   <div class="row">
-    <div class="col-lg-6 offset-3">
+    <div class="col-lg-6 offset-1">
       <div class="card text-center">
         <div class="card-body">
           <h3>Agregar Empleado</h3>
-          <form class="mt-4">
+          <span
+            *ngIf="subbmited && createEmpleado.invalid"
+            class="badge bg-danger"
+            >Todos los campos son obligatorios
+            </span>
+          <form
+            class="mt-4"
+            [formGroup]="createEmpleado"
+            (ngSubmit)="agregarEmpleado()"
+          >
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Nombre" />
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="nombre"
+                  placeholder="Nombre"
+                />
               </div>
               <div class="col">
                 <input
                   type="text"
                   class="form-control"
+                  formControlName="apellido"
                   placeholder="Apellido"
                 />
               </div>
@@ -20,11 +35,13 @@
             <input
               type="text"
               class="form-control mt-3"
+              formControlName="documento"
               placeholder="Documento"
             />
             <input
               type="text"
               class="form-control mt-3"
+              formControlName="salario"
               placeholder="Salario"
             />
             <div class="mt-3">

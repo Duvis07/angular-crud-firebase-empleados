@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "empleados-52f57": {
+      "hosting": {
+        "empleados": [
+          "empleados-52f57"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "empleados-52f57"
+  }
+}

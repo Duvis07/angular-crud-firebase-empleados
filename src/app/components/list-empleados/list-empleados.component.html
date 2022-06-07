@@ -22,7 +22,8 @@
             <td>{{ empleado.nombre }}</td>
             <td>{{ empleado.apellido }}</td>
             <td>{{ empleado.documento }}</td>
-            <td>{{ empleado.salario }}</td>
+            <!-- currency sirve para mostrar formato moneda -->
+            <td>{{ empleado.salario | currency}}</td>
             <th>
               <i class="fa-solid fa-pen-to-square fa-lg text-info me-3"></i>
               <i class="fa-solid fa-trash-can fa-lg text-danger"></i>

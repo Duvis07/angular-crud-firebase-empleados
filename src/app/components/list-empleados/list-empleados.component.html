@@ -6,7 +6,8 @@
       <button class="btn btn-dark float-end" routerLink="/create-empleado">
         Agregar
       </button>
-      <table class="table table table-striped mt-5">
+      <h5 *ngIf="empleados.length == 0">No hay datos para mostrar</h5>
+      <table *ngIf="empleados.length > 0" class="table table table-striped mt-5">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -25,8 +26,14 @@
             <!-- currency sirve para mostrar formato moneda -->
             <td>{{ empleado.salario | currency}}</td>
             <th>
-              <i class="fa-solid fa-pen-to-square fa-lg text-info me-3"></i>
-              <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
+              <i
+                class="fa-solid fa-pen-to-square fa-lg text-info me-3"
+                [routerLink]="['/edit-empleado/', empleado.id]"
+                ></i>
+              <i
+                (click)="eliminarEmpleado(empleado.id)"
+                class="fa-solid fa-trash-can fa-lg text-danger"
+                ></i>
             </th>
           </tr>
 

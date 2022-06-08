@@ -39,11 +39,23 @@ export class ListEmpleadosComponent implements OnInit {
           // se guarda en empleados[]
           this.empleados.push({
             id: element.payload.doc.id, //le agregamos el id en una variable nueva
-            ...element.payload.doc.data(), //con sprint-operator concatemos el id con data
+            ...element.payload.doc.data() //con sprint-operator concatemos el id con data
           })
         });
       });
       console.log(this.empleados)
   }
+
+  eliminarEmpleado(id: string) {
+    this.empleadoService.eliminarEmpleado(id)
+      .then(() => {
+        console.log(this.empleados)
+        console.log('Empleado Eliminado con éxito')
+        alert('Empleado Eliminado con éxito')
+      })
+      .catch(error => console.log(error))
+      console.log(this.empleados)
+  }
+
 
 }

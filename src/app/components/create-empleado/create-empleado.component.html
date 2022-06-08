@@ -4,7 +4,7 @@
       <div class="card text-center">
         <div class="card-body">
           <h3>
-            Agregar Empleado
+            {{ titulo }}
             <div
               *ngIf="loading"
             class="spinner-border text-primary float-end" role="status">
@@ -19,7 +19,7 @@
           <form
             class="mt-4"
             [formGroup]="createEmpleado"
-            (ngSubmit)="agregarEmpleado()"
+            (ngSubmit)="agregarEditarEmpleado()"
           >
             <div class="row">
               <div class="col">
